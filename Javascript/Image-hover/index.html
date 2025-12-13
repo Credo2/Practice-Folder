@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="" />
+		<title>Document</title>
+	</head>
+	<style>
+		.image {
+			transition: transform 0.3s ease-in-out;
+			transition: transform 0.3s cubic-bezier(0.77, -0.4, 0.23, 1.36);
+			/* transform :0.3s cubic-bezier(0.74, -0.45, 0, 1.38)'' */
+		}
+
+		.image.active {
+			transform: scale(1.1);
+		}
+	</style>
+	<body
+		style="
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			align-content: center;
+		">
+		<img
+			class="image"
+			id="image2"
+			src="https://placehold.co/600x400/orange/b87a25"
+			alt="asdasdasdasd" />
+
+		<!-- <img class="image" id="image" alt="asdasdasdasd" https://placehold.co/600x400/orange/b87a25/> -->
+	</body>
+	<script>
+		let imageClass = document.querySelector(".image");
+
+		function addHoverEffect(element, onEnter, onLeave) {
+			element.addEventListener("mouseenter", onEnter);
+			element.addEventListener("mouseleave", onLeave);
+		}
+
+		addHoverEffect(
+			imageClass,
+			() => {
+				imageClass.classList.add("active");
+				document.getElementById("image2").src =
+					"https://placehold.co/600x400/000000/FFF";
+			},
+			() => {
+				imageClass.classList.remove("active");
+				document.getElementById("image2").src =
+					"https://placehold.co/600x400/orange/b87a25";
+			}
+		);
+	</script>
+</html>
