@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="" />
+		<title>Document</title>
+	</head>
+	<style>
+		body {
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+		.image {
+			transition: transform 0.3s cubic-bezier(0.77, -0.4, 0.23, 1.36);
+		}
+
+		.button-container {
+			margin-top: 1em;
+		}
+
+		.swatch {
+			height: 3em;
+			width: 5em;
+		}
+	</style>
+	<body>
+		<img
+			class="image"
+			id="image2"
+			src="https://placehold.co/600x400/000000/b87a25"
+			alt="asdasdasdasd" />
+
+		<div class="button-container">
+			<button id="red" data-color="FF0000" class="swatch">red</button>
+			<button id="yellow" data-color="FFFF00" class="swatch">
+				yellow
+			</button>
+			<button id="blue" data-color="0000FF" class="swatch">blue</button>
+		</div>
+	</body>
+	<script>
+		let imageClass = document.querySelector(".image");
+		let swatches = document.querySelectorAll(".swatch");
+
+		swatches.forEach(btn_function => {
+			btn_function.addEventListener("click", event => {
+				// alert(event.currentTarget.dataset.color);
+				imageClass.src =
+					"https://placehold.co/600x400/000000/" +
+					event.currentTarget.dataset.color;
+			});
+		});
+	</script>
+</html>
